@@ -1,0 +1,6 @@
+Gestion d'erreur de connexion (ajax ?)
+page admin retourner sur l'onglet profil apres modification/suppression
+ajout de htmlspecialchars pour la sécurité (injection sql)
+cryptage des mdp dans la bdd
+changer photos
+beautify

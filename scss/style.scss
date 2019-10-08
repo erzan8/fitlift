@@ -1,0 +1,1803 @@
+//Reset CSS
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+//mixins
+@mixin bigyellowtitle {
+    font-family: 'sofia pro', 'arial';
+    font-weight: bold;
+    text-align: center;
+    color: $yellow;
+    font-size: 3em;
+    font-style: italic;
+    line-height: 2em;
+    text-transform: uppercase;
+}
+
+@mixin yellowbutton {
+    width: 100%;
+    cursor: pointer;
+    padding: 1em 2em;
+    background-color: black;
+    font-size: 1.1em;
+    color: $yellow;
+    font-family: 'sofia pro', 'arial';
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    margin: 1em 0;
+    transition: ease 400ms all;
+
+    &:hover {
+        color: $blackfont;
+        background-color: $yellow;
+    }
+}
+
+//Variables
+$yellow: #ffff00;
+$blackfont: #252525;
+$greyfont: #b2b2b2;
+$greyblock: #333333;
+$lightgrey :#f1f1f1;
+$lightgreyfont: #808080;
+$blackbackground: #1a1a1a;
+$backgroundmember2: #f5f5f5;
+
+@font-face {
+    font-family: 'sofia pro';
+    src: url('../fonts/Sofia\ Pro\ Bold.otf') format('truetype'),
+        url('../fonts/Sofia\ Pro\ Bold\ Italic.otf') format('truetype'),
+        url('../fonts/Sofia\ Pro\ Light.otf') format('truetype'),
+        url('../fonts/Sofia\ Pro\ Medium.otf') format('truetype'),
+        url('../fonts/Sofia\ Pro\ Regular.otf') format('truetype'),
+        url('../fonts/Sofia\ Pro\ Semi\ Bold.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+ul{
+    li{
+        font-family: 'sofia pro regular', 'arial';
+        margin-bottom: 1em;
+        line-height: 1.2em;
+        
+    }
+}
+//accueil
+body {
+    margin-top: 2em;
+    background-image: url(../images/bg.jpg);
+    background-position: center;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+
+.flex {
+    display: flex;
+}
+
+.suppr,
+.edit,
+.modif {
+    color: white;
+    font-family: 'sofia pro regular', 'arial';
+    border-radius: 5px;
+    padding: 0.6em;
+    margin-right: 1em;
+    border: solid 2px $yellow;
+    background: none;
+    height: 38px;
+    cursor: pointer;
+    transition: all ease 300ms;
+    max-width: 100px;
+
+    &:hover {
+        color: $yellow;
+        border-color: white;
+    }
+}
+
+header {
+    display: flex;
+    height: 100px;
+    width: 100%;
+    padding: 1em;
+    justify-content: space-between;
+    position: relative;
+    z-index: 100;
+
+    .logo {
+        position: relative;
+        top: -32px;
+
+    }
+
+    .avatar {
+        position: relative;
+        width: 100%;
+        max-width: 65px;
+        top: -48px;
+        right: 45px;
+        transition: ease 0.5s;
+
+        &:hover {
+            transform: scale(1.15);
+        }
+    }
+
+    .topright {
+        padding: 1em;
+    }
+
+}
+
+//Menu fixe
+nav {
+    height: calc(100vh + 10px);
+    margin: auto 0;
+    padding-top: 9%;
+    display: flex;
+    justify-content: center;
+    width: calc(100% + 10px);
+    position: fixed;
+    z-index: 100;
+    top: -10px;
+    left: -10px;
+    background-image: url(../images/menu-bg.jpg);
+    display: none;
+    line-height: 0em;
+    opacity: 0.95;
+
+    li {
+        margin: auto;
+        list-style-type: none;
+        font-family: 'sofia pro', 'arial';
+        font-weight: bold;
+        text-align: center;
+        font-size: 3em;
+        font-style: italic;
+        line-height: 2em;
+        position: relative;
+        z-index: 1000;
+        color: $yellow;
+        width: 50%;
+        margin: auto;
+        transition: 0.5s ease;
+        border: 0;
+
+        &::after {
+            content: '';
+            width: 0px;
+            position: absolute;
+            left: 30%;
+            display: block;
+            border-top: solid 3px white;
+            -webkit-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+
+        &:hover::after {
+            width: 300px;
+        }
+
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+#resultat {
+    background-color: $yellow;
+    color: white;
+    position: absolute;
+    z-index: 20000;
+}
+
+h1 {
+    font-size: 3em;
+    color: $blackfont;
+    font-family: 'sofia pro', 'arial';
+    margin-bottom: 0.3em;
+
+}
+
+h2 {
+    font-size: 1.7em;
+    color: $greyfont;
+    font-family: 'sofia pro bold', 'arial';
+    font-weight: bold;
+    margin-bottom: 0.8em;
+}
+
+h3 {
+    font-size: 1.2em;
+    color: $lightgrey;
+    font-family: 'sofia pro medium', 'arial';
+
+}
+
+#commande {
+    h2.carac{
+        text-align: center;
+        color: $blackfont;
+        font-family: 'sofia pro', 'arial';
+        text-transform: uppercase;
+        font-weight: bold;
+        border-bottom: solid 4px $yellow;
+        margin: auto;
+        max-width: 500px;
+        padding-bottom: 0.7em;
+        margin-bottom: 2em;
+    }
+    .flexdetails{
+        display: flex;
+        justify-content: space-around;
+        margin: 0 2em;
+        .icondesc{
+        ul{
+            padding: 0 2em;
+        img{
+            position: relative;
+            left: 200px;
+            margin: 0;
+        }
+        li{
+            display: block;
+            font-size: 1.1em;
+            font-weight: bold;
+            padding: 0em 1em;
+            &:first-of-type{
+                margin-bottom: 3em;
+            }
+        }
+
+}
+}
+        img{
+            width: 64px;
+            margin-bottom : 2em;
+        }
+   
+        
+    .caracteristiques{
+        display:flex;
+        margin-left: 1em;
+        .title{
+           font-weight: bold; 
+           padding-right: 2em;
+        }
+        .valeur{
+            padding-left: 3em;
+            border-left: solid 2px $lightgrey;
+            border-radius: 5%;
+            font-family: 'sofia pro light', 'arial';
+            color: lightgrey;
+        }
+    }
+}
+    .suppr, .edit, .modif {
+        color: white;
+        background-color: black;
+        border:none;
+        
+        &:hover{
+            color: black;
+            background-color: $lightgrey;
+        }
+    }
+    .commentaires {
+        padding: 2em 5em;
+    }
+   
+    .modifier {
+        display: none;
+    }
+
+    .formOr {
+        position: relative;
+
+        &:before {
+            content: url(../images/user-avatar.png);
+            width: 100%;
+            position: absolute;
+            left: 5px;
+            top: -5px;
+            z-index: 0;
+        }
+
+        .submitOr {
+            border: none;
+            color: black;
+            background: none;
+            transition: all 300ms ease;
+
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+
+        textarea#commentaireOr {
+            color: black;
+            background-color: white;
+            border: none;
+            width: 80%;
+            min-height: 70px;
+            border-bottom: solid 1px $greyfont;
+            position: relative;
+            z-index: 1;
+
+        }
+    }
+
+    .commentcom {
+        margin-top: 2em;
+
+        div {
+            margin-top: -1em;
+
+            &:before {
+                content: url(../images/user-avatar.png);
+                width: 100%;
+                position: relative;
+                left: -80px;
+                bottom: -62px;
+            }
+
+        }
+
+        p {
+            padding: 1.5em 0;
+            color: black;
+            font-family: 'sofia pro regular', 'arial';
+        }
+    }
+
+    span {
+        font-family: 'sofia pro light', 'arial';
+        color: $lightgreyfont;
+    }
+}
+
+.connexion {
+    display: flex;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    margin: auto;
+    padding: 1em;
+    background-color: #333333;
+    opacity: 0.95;
+    visibility: hidden;
+    z-index: 100;
+    font-family: 'sofia pro medium', 'arial';
+
+    h3 {
+        @include bigyellowtitle();
+
+    }
+
+    .formconnexion {
+        display: flex;
+        margin: auto;
+        position: relative;
+        flex-direction: column;
+        opacity: 1;
+        padding: 2em;
+        min-width: 300px;
+        min-height: 350px;
+        border-radius: 10px;
+        background-color: $blackbackground;
+
+        .linksp {
+            margin: 0.3em 0;
+            text-align: center;
+            font-size: 0.9em;
+
+            a {
+                text-decoration: none;
+                transition: all ease 200ms;
+                color: white;
+
+                &:hover {
+                    color: $yellow;
+                }
+            }
+        }
+
+        .close {
+            position: absolute;
+            cursor: pointer;
+            top: -15px;
+            right: -15px;
+            width: 10%;
+        }
+
+        .connexion-button {
+            @include yellowbutton();
+        }
+
+        #mdp,
+        #login {
+            background-color: $blackbackground;
+            color: #fafafa;
+            border: solid 3px $yellow;
+            width: 100%;
+            padding: 1em 0.5em;
+            margin: 1em 0;
+            font-family: 'sofia pro', 'arial';
+            font-weight: bold;
+
+        }
+    }
+
+    .connected {
+        font-size: 1.1em;
+        color: $yellow;
+        font-family: 'sofia pro', 'arial';
+        font-weight: bold;
+        text-align: center;
+        margin: 1em;
+        padding: 1em;
+    }
+}
+
+.hello {
+    display: block;
+    text-align: center;
+    font-size: 0.9em;
+    text-decoration: none;
+    color: $lightgreyfont;
+    font-family: 'sofia pro regular', 'arial';
+    font-weight: bold;
+    position: relative;
+    top: -44px;
+    right: 50px;
+}
+
+.flexcolumn {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.product {
+    margin-top: 2em;
+}
+
+.descriptif {
+    width: 40%;
+    margin-left: 3em;
+    box-sizing: border-box;
+
+    p {
+        font-size: 0.9em;
+        line-height: 1.4em;
+        margin-bottom: 0.8em;
+        color: black;
+        font-family: 'sofia pro regular', 'arial';
+        margin-left: 0;
+        padding-left: 0;
+
+        span {
+            font-weight: bold;
+        }
+    }
+
+    .button {
+        display: block;
+        font-family: 'sofia pro regular', 'arial';
+        font-size: 1.4em;
+        border-top: solid $blackfont 3px;
+        border-bottom: solid $blackfont 3px;
+        text-decoration: none;
+        width: 200px;
+        padding: 0.5em;
+        text-align: center;
+        margin: 1em;
+        margin-left: 0;
+        color: $greyfont;
+        box-sizing: border-box;
+        transition: 0.5s ease;
+
+        &:hover {
+            background-color: $blackfont;
+            color: yellow;
+
+        }
+    }
+
+}
+
+.boutonconnect {
+    @include yellowbutton();
+    text-decoration: none;
+
+}
+
+
+.raquette {
+    width: 65%;
+    position: relative;
+
+    .raquette-img {
+        width: 100%;
+        transform: rotateZ(-15deg);
+        overflow: hidden;
+        position: relative;
+        left: -150px;
+        animation: levitation 3s ease-in infinite alternate;
+    }
+
+    .number {
+        font-size: 15em;
+        width: 220px;
+        position: absolute;
+        right: 0.5em;
+        top: 1em;
+        font-family: 'sofia pro', 'arial';
+        font-weight: bold;
+        color: $blackfont;
+        border-top: solid $blackfont 1px;
+    }
+
+
+}
+
+.stats {
+    display: flex;
+    min-height: 1310px;
+    box-shadow: -19px 17px 40px 0px rgba(0, 0, 0, 0.75);
+    background-color: $blackbackground;
+    border-radius: 30px;
+    width: 80%;
+    margin: auto;
+    margin-top: 12em;
+
+    .leftside {
+        width: 15%;
+        padding: 2em;
+        box-sizing: border-box;
+
+        li {
+            color: $lightgreyfont;
+            font-family: 'sofia pro', 'arial';
+            line-height: 3em;
+
+        }
+    }
+}
+
+.data {
+    width: 85%;
+
+    box-sizing: border-box;
+    padding: 2em;
+
+    .heartbeat {
+        box-sizing: border-box;
+        background-color: $greyblock;
+        border-radius: 20px;
+        padding: 1em;
+        margin: 1em 0em;
+        transition: 0.5s ease;
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 20px 2px rgba(222, 222, 222, 1);
+        }
+    }
+}
+
+.graphs,
+.interaction {
+    width: 100%;
+    padding: 1em;
+    justify-content: space-around;
+
+    h3 {
+        margin-bottom: 1.5em;
+        text-align: center;
+    }
+
+}
+
+.ball {
+    display: block;
+    width: 30px;
+    height: 30px;
+    box-shadow: 0px 0px 15px 1px rgba(222, 222, 222, 1);
+    border-radius: 50%;
+    background-color: $yellow;
+    position: relative;
+    top: 140px;
+    right: 83%;
+    z-index: 500;
+    animation: tennis 5s infinite ease-in-out;
+}
+
+@keyframes tennis {
+    0% {
+        top: 140px;
+        right: 83%;
+    }
+
+    25% {
+        top: 265px;
+        right: 18%;
+    }
+
+    50% {
+        right: 80%;
+    }
+
+    75% {
+        top: 150px;
+        right: 40%;
+    }
+
+    100% {
+        top: 140px;
+        right: 83%;
+    }
+}
+
+img {
+    width: 100%;
+}
+
+.graph {
+    background-color: $greyblock;
+    border-radius: 20px;
+    padding: 1em;
+    margin: 1em;
+    box-sizing: border-box;
+    transition: 0.5s ease;
+
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 0px 20px 2px rgba(222, 222, 222, 1);
+    }
+
+    img.court {
+        margin: auto;
+        width: 80%;
+
+    }
+}
+
+//keyframes
+@keyframes levitation {
+    from {
+        transform: translateY(10px);
+    }
+
+    to {
+        transform: translateY(30px);
+    }
+}
+
+//burger
+
+.wrapper-menu {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 20000;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 330ms ease-out;
+}
+
+.wrapper-menu.open {
+    transform: rotate(-45deg);
+}
+
+.line-menu {
+    background-color: $yellow;
+    border-radius: 5px;
+    width: 100%;
+    height: 6px;
+}
+
+.line-menu.half {
+    width: 50%;
+}
+
+.line-menu.start {
+    transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+    transform-origin: right;
+}
+
+.open .line-menu.start {
+    transform: rotate(-90deg) translateX(3px);
+}
+
+.line-menu.end {
+    align-self: flex-end;
+    transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+    transform-origin: left;
+}
+
+.open .line-menu.end {
+    transform: rotate(-90deg) translateX(-3px);
+}
+
+
+//EQUIPE
+
+#equipe {
+    background-image: none;
+    background-color: white;
+    overflow-x: hidden;
+
+    h1 {
+        position: absolute;
+        top: 15%;
+        left: 4%;
+    }
+}
+
+.team {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    position: absolute;
+    margin-top: -180px;
+    top: 0;
+    right: 0;
+}
+
+.member {
+    position: relative;
+    top: 180px;
+    margin: auto;
+    min-height: 100vh;
+    padding: 13% 2em 1em 2em;
+    display: flex;
+    flex-direction: column;
+    width: 34%;
+
+    div.img img {
+        margin-left: 3em;
+    }
+
+    img {
+        max-width: 65%;
+        margin: 1em auto;
+    }
+
+    h2 {
+        margin: 0;
+        padding: 0.5em;
+        font-family: 'sofia pro light', 'arial';
+        font-size: 1.2em;
+
+    }
+
+    p {
+        font-family: 'sofia pro regular', 'arial';
+        font-size: 0.8em;
+        line-height: 1.4em;
+        text-align: justify;
+    }
+}
+
+.member1,
+.member2,
+.member3 {
+    img {
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+}
+
+.member2 {
+    background-color: $backgroundmember2;
+}
+
+.member3 {
+    background-color: $blackbackground;
+
+    p {
+        color: white;
+    }
+
+}
+
+//Commande
+#commande {
+    background-image: url('../images/bg-commande.png');
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: 50%;
+}
+
+.produit,
+.setsize {
+    display: flex;
+}
+
+.raquette-produit {
+    width: 50%;
+    padding: 1em;
+    margin-top: 6em;
+
+
+    .number {
+        font-size: 15em;
+        width: 220px;
+        position: absolute;
+        z-index: 1;
+        left: -10%;
+        top: -55%;
+        font-family: 'sofia pro', 'arial';
+        font-weight: bold;
+        color: #fafafa;
+        border-top: solid #fafafa 1px;
+    }
+
+    .raq1 {
+        transform: rotateY(180deg) rotateZ(-45deg) scale(0.9);
+        position: relative;
+        z-index: 10;
+        top: -110px;
+
+    }
+
+    .raq2 {
+        display: none;
+        transform: scale(0.5);
+        position: relative;
+        top: -110px;
+        z-index: 10;
+    }
+
+    .raq3,
+    .raq4,
+    .raq5 {
+        display: none;
+        transform: scale(0.7);
+        position: relative;
+        top: -110px;
+        z-index: 10;
+
+    }
+
+    .vignettes {
+        position: relative;
+        top: -200px;
+        z-index: 20;
+        display: flex;
+
+        .vignette {
+
+            width: 100px;
+            max-width: 100%;
+            margin: 1em;
+            transition: ease 0.3s;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+    }
+}
+.apps{
+    position: relative;
+    top: 150px;
+    .boutonsapp{
+        margin: auto;
+        width: 400px;
+        text-align:center;
+    }
+h3.appli{
+    display: block;
+    margin: auto;
+    text-align: center;
+    color: $blackfont;
+    text-transform: uppercase;
+    font-weight: bold;
+   
+    padding: 1em;
+    background-color: white;
+    border-radius: 50px;
+    max-width: 300px;
+}
+    img{
+        margin-top: 1em;
+        width: 40%;
+        height: 40%;
+    }
+}
+.desc-produit {
+    width: 50%;
+    margin: 1em 2em;
+    padding: 1em 2em;
+
+    p {
+        font-family: 'sofia pro regular', 'arial';
+        font-size: 0.8em;
+        line-height: 1.4em;
+        margin: 0;
+        padding: 0;
+        color: black;
+        text-align: justify;
+    }
+
+    .price {
+        font-family: 'sofia pro', 'arial';
+        font-size: 1.3em;
+        font-weight: bold;
+        padding: 1em 1em 1em 0em;
+    }
+
+    .taille {
+        font-family: 'sofia pro', 'arial';
+        font-size: 1.3em;
+        font-weight: bold;
+        margin: 1em 1em 1em 0em;
+    }
+
+    select {
+        border-radius: 50px;
+        width: 64px;
+        padding: 1em;
+        margin: 0.7em 0 0 1em;
+    }
+
+    .button {
+        display: block;
+        margin: 1em auto;
+        width: 200%;
+        color: white;
+        text-align: center;
+        font-family: 'sofia pro', 'arial';
+        font-size: 1.3em;
+        font-weight: bold;
+        padding: 1em;
+        text-decoration: none;
+        background-color: $blackbackground;
+        transition: all 0.3s ease;
+
+        &:hover {
+            color: $yellow;
+        }
+
+    }
+}
+
+body#loader {
+    background: none;
+    height: 100vh;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+.centervid {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+video {
+    margin: auto;
+    justify-content: center;
+}
+
+.loaderbutton {
+    display: block;
+    opacity: 0;
+    text-align: center;
+    font-family: 'sofia pro regular', 'arial';
+    font-size: 1.4em;
+    background-color: $blackfont;
+    color: yellow;
+    text-decoration: none;
+    margin: auto;
+    position: relative;
+    bottom: 90px;
+    width: 200px;
+    padding: 1.2em;
+    border-radius: 10px;
+    transition: 0.5s ease;
+    border: solid 1px white;
+    animation: appear 2s linear forwards;
+    animation-delay: 1.5s;
+
+    &:hover {
+        transform: scale(1.05);
+        border-radius: 50px;
+    }
+
+}
+
+//Livre d'or
+body#livre {
+    background-image: linear-gradient(to right bottom, #000000, #0e0e0e, #181818, #202020, #282828);
+    min-height: 100vh;
+
+    h1 {
+        @include bigyellowtitle();
+    }
+
+    .retour {
+        color: $yellow;
+        font-size: 1.3em;
+    }
+
+    .modifier {
+        display: none;
+
+        .editcom {
+            background-color: white;
+            color: black;
+            border: solid 2px $lightgrey;
+        }
+    }
+}
+
+.commenterOr {
+    margin: 0 2em 2em 2em;
+    width: 95%;
+    padding: 2em;
+    font-family: 'sofia pro', 'arial';
+
+    .formOr {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #commentaireOr {
+        width: 100%;
+        border: solid 5px $yellow;
+        background-color: $greyblock;
+        color: $lightgreyfont;
+        min-height: 275px;
+        margin: auto;
+        padding: 1em;
+        font-family: 'sofia pro', 'arial';
+        font-size: 1em;
+
+
+    }
+
+    .editcom {
+        width: 100%;
+        border: solid 5px $yellow;
+        background-color: $greyblock;
+        color: $lightgreyfont;
+        margin: auto;
+        padding: 1em;
+        font-family: 'sofia pro', 'arial';
+        font-size: 1em;
+    }
+
+    .submitOr {
+        text-align: center;
+        padding: 1em;
+        width: 300px;
+        margin: auto;
+        cursor: pointer;
+        margin-top: 1em;
+        border-radius: 5px;
+        justify-content: center;
+        background-color: $blackbackground;
+        border: solid 3px $yellow;
+        color: white;
+        font-family: 'sofia pro', 'arial';
+        font-weight: bold;
+        font-size: 1.1em;
+        text-transform: uppercase;
+
+    }
+}
+
+//profil
+#profil {
+    .divprofil {
+        display: flex;
+        justify-content: space-around;
+        margin: auto;
+        font-family: 'sofia pro', 'arial';
+
+        h1 {
+            color: $yellow;
+        }
+    }
+
+    .adresse {
+        max-width: 300px;
+    }
+
+    .profil {
+        background-image: linear-gradient(to right bottom, #000000, #0e0e0e, #181818, #202020, #282828);
+        margin: 1em 2em;
+        padding: 2em;
+        border-radius: 20px;
+    }
+
+    .infoprofil {
+
+        padding: 1em 2em;
+
+        p {
+            font-family: 'sofia pro regular', 'arial';
+            line-height: 1.2em;
+            color: white;
+            font-size: 1.2em;
+            margin-bottom: 0.5em;
+
+            span {
+                color: $yellow;
+            }
+        }
+    }
+
+    .editprofil {
+        padding: 1em 2em;
+    }
+
+    .commandeuniq {
+        p {
+            margin-right: 2em;
+
+            span {
+                color: $yellow;
+            }
+        }
+    }
+    p.retour {
+        color: $yellow;
+        text-align: center;
+        font-size: 1.3em;
+        line-height: 1.3em;
+        padding-bottom: 0.5em;
+    }
+}
+.editlarge {
+    color: white;
+    font-family: 'sofia pro regular', 'arial';
+    border-radius: 5px;
+    padding: 0.6em;
+    margin-right: 1em;
+    border: solid 2px $yellow;
+    background: none;
+    height: 38px;
+    cursor: pointer;
+    transition: all ease 300ms;
+    width: 230px;
+
+    &:hover {
+        color: $yellow;
+        border-color: white;
+    }
+}
+
+//Gestion des commentaires
+
+.singlecomment {
+    margin: 1em;
+    margin-left: 4em;
+    margin-top: -1em;
+
+    padding: 1em;
+    color: white;
+    font-family: 'sofia pro light', 'arial';
+
+    div:before {
+        content: url(../images/user-avatar.png);
+        width: 100%;
+        position: relative;
+        left: -80px;
+        bottom: -62px;
+    }
+
+    span {
+        color: $yellow;
+        font-weight: bold;
+    }
+
+    p {
+        margin: 1em 0;
+    }
+
+}
+
+//Espace admin
+body#admin {
+    margin: 2em;
+    background-image: linear-gradient(to right bottom, #000000, #0e0e0e, #181818, #202020, #282828);
+    width: 97%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'sofia pro', 'arial';
+    header .avatar {
+        right: 33px;
+    }
+    p.hello {
+        margin: 0;
+    }
+
+    .actif {
+        background-color: $yellow;
+        color: black;
+    }
+
+    .centre {
+        margin: auto;
+    }
+
+    .boutonsedit {
+        flex-direction: column;
+        flex: 2;
+        align-self: flex-end;
+
+        input {
+            padding: 0.3em;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 100;
+            width: 100%;
+            max-width: 100px;
+
+        }
+
+        p {
+            padding-top: 0.6em;
+            cursor: pointer;
+            margin: 0;
+            font-size: 1em;
+            border: solid 1px #ffff00;
+            border-radius: 5px;
+            text-align: center;
+            width: 100%;
+            max-width: 100px;
+        }
+    }
+
+    p {
+        color: white;
+        margin: 1em;
+        padding: 0.5em;
+        display: block;
+        justify-content: space-between;
+
+        span {
+            font-weight: bold;
+            color: $yellow;
+        }
+
+    }
+
+    .retour {
+        color: $yellow;
+        font-size: 1.5em;
+        font-weight: bold;
+        margin: 2em auto;
+        text-align: center;
+    }
+
+    .adm {
+        margin: auto;
+        max-width: 500px;
+    }
+
+    h1 {
+        @include bigyellowtitle();
+        text-align: center;
+        margin: auto;
+    }
+
+    h2 {
+        display: block;
+        text-align: center;
+        margin: auto;
+        color: $yellow;
+        font-weight: bold;
+        font-size: 2em;
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 0.6em;
+        border: solid 3px white;
+    }
+
+    h3 {
+        text-align: center;
+        text-transform: uppercase;
+        margin-top: 1.5em;
+        font-size: 1.6em;
+    }
+
+    .formajout {
+        margin: 1em;
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+
+        .ajout {
+            text-align: center;
+        }
+
+        input {
+            width: 50%;
+            margin: auto;
+            margin-bottom: 0.5em;
+        }
+    }
+
+    .profils {
+        display: none;
+    }
+
+    input {
+        background-color: $blackbackground;
+        color: #fafafa;
+        border: solid 1px $yellow;
+        border-radius: 5px;
+        padding: 1em 0.5em;
+        margin: 1em 0;
+        font-family: 'sofia pro', 'arial';
+        font-weight: bold;
+    }
+}
+
+.commandes {
+    margin-top: 3em;
+}
+
+.user,
+.commandeuniq {
+
+    color: white;
+    font-family: 'sofia pro', 'arial';
+
+    .del {
+        margin: auto;
+        cursor: pointer;
+    }
+
+    .buttons {
+        margin: auto;
+        width: 30%;
+
+    }
+
+    .modifications {
+        display: none;
+    }
+
+    #modif {
+        background-color: $blackbackground;
+        color: #fafafa;
+        border: solid 1px $yellow;
+        border-radius: 5px;
+        padding: 0;
+        margin: auto;
+        font-size: 0.9em;
+        cursor: pointer;
+        font-weight: bold;
+
+        p {
+            padding: 0;
+        }
+    }
+}
+
+//formulaire commande et recuperation
+.formcommande {
+    width: 70%;
+    margin: auto;
+    font-family: 'sofia pro', 'arial';
+    background-image: linear-gradient(to right bottom, #000000, #121212, #1d1d1d, #282828, #333333);
+    padding: 1em 4em;
+    border-radius: 20px;
+
+    h1 {
+        color: $yellow;
+    }
+
+    .retour {
+        color: $yellow;
+        text-align: center;
+        font-size: 1.3em;
+        line-height: 1.3em;
+    }
+
+    p.consigne {
+        font-family: 'sofia pro', 'arial';
+        margin: 1em 0;
+        color: white;
+        font-size: 1.2em;
+        font-weight: 100;
+
+    }
+
+    p {
+        font-weight: bold;
+
+        input {
+            background-color: $blackbackground;
+            color: #fafafa;
+            border: solid 3px $yellow;
+            width: 100%;
+            padding: 1em 0.5em;
+            margin: 0.3em 0;
+            font-family: 'sofia pro', 'arial';
+            font-weight: bold;
+        }
+    }
+
+}
+
+.formbutton {
+    @include yellowbutton();
+}
+
+body#inscription.formcommande {
+    width: 50%;
+
+    .boutonconnect {
+        border: none;
+    }
+    p.retour {
+        color: $yellow;
+        text-align: center;
+        font-size: 1.3em;
+        line-height: 1.3em;
+    }
+    
+}
+.button-retour{
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    transition: all ease 300ms;
+    color: white;
+    padding: 1em 0 0 0;
+    &:hover{
+        color: $yellow;
+    }
+}
+
+
+@keyframes appear {
+    100% {
+        opacity: 1;
+    }
+}
+
+@media all and (max-width: 1200px) {
+
+    //produit
+    .descriptif,
+    .raquette {
+        width: 90%;
+        margin: 1em 2em;
+    }
+
+    .raquette {
+        width: 90%;
+
+        .raquette-img {
+            position: relative;
+            left: -10px;
+            top: -20px;
+            animation: levitation 3s ease-in infinite alternate;
+        }
+
+        .number {
+            top: 245px;
+            right: 10px;
+        }
+    }
+
+    //commande
+    #commande {
+        overflow-x: hidden;
+    }
+
+    .produit {
+        flex-direction: column;
+
+        .desc-produit {
+            order: 1;
+            width: 90%;
+
+            .button {
+                width: 100%;
+            }
+        }
+
+        .raquette-produit {
+            width: 90%;
+            order: 2;
+            margin: auto;
+        }
+    }
+
+}
+
+@media all and (max-width: 900px) {
+    .flex {
+        flex-direction: column;
+    }
+
+    .loaderbutton {
+        bottom: -10px;
+    }
+
+    nav {
+        padding-top: 20%;
+    }
+
+    #profil .divprofil {
+        flex-direction: column;
+    }
+
+    //produit
+    body {
+        background: none;
+    }
+
+    .stats {
+        width: 100%;
+        margin-top: 11em;
+    }
+
+    .graph {
+        width: 90%;
+    }
+
+    .ball {
+        display: none;
+    }
+
+    //commande
+    #commande {
+        .produit {
+            flex-direction: column;
+
+            .desc-produit {
+                order: 1;
+                width: 90%;
+
+                .button {
+                    width: 100%;
+                    
+
+                }
+            }
+        }
+
+        .commentaires {
+            padding: 2em 1em;
+
+        }
+
+        .formOr:before {
+            left: -25px;
+            top: -5px;
+            z-index: 0;
+        }
+        .flexdetails, .icons{
+            flex-direction: column;
+            margin-left: 0;
+        }
+        .icondesc {
+            li{
+            font-size: 0.8em;
+        }
+    }
+    }
+
+    //equipe
+    .member img {
+        max-width: 80%;
+    }
+
+    .member {
+        width: 100%;
+        flex-direction: row;
+        min-height: 0;
+
+        .descmembre {
+            margin: auto;
+        }
+
+        div.img {
+            width: 200%;
+
+            img {
+                margin-left: 0;
+            }
+        }
+
+
+    }
+
+    .member1 {
+        margin-top: 7em;
+    }
+
+    //formulaire
+    .formcommande {
+        h1 {
+            font-size: 1.9em;
+        }
+
+        .consigne {
+            font-size: 1em;
+        }
+    }
+
+}
+@media all and(max-width:800px){
+    #commande .flexdetails .icondesc ul li{
+        padding: 1em 1em;
+        font-size: 1em;
+    } 
+}
+@media all and(max-width: 700px){
+    .logo{
+        width: 55%;
+    }
+    .raquette-produit .vignettes .vignette {
+        width: 12%;
+        height: 100%;
+    }
+    .desc-produit{
+        margin-bottom: 3em;
+    }
+    h2.carac{
+        position: relative;
+        top: -60px;
+    }
+}
