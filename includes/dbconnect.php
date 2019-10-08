@@ -1,6 +1,6 @@
 <?php
 try{
-    $dbh = new PDO('mysql:host=cl1-sql20;dbname=dki06713', 'dki06713','SND0gv4FoBsy');
+    $dbh = new PDO('mysql:host=cl1-sql20;dbname=', '','');
 
 }
 catch (PDOException $e) {

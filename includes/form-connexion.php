@@ -9,7 +9,7 @@ if (isset($_POST['login']) AND isset($_POST['mdp'])){
 
 
 // Connexion à la base de données
-$dbh = new PDO('mysql:host=cl1-sql20;dbname=dki06713', 'dki06713','SND0gv4FoBsy');
+$dbh = new PDO('mysql:host=cl1-sql20;dbname=', '','');
 
 
 //tester la connexion
